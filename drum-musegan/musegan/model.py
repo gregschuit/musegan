@@ -37,8 +37,8 @@ class Model:
             if params.get('is_accompaniment'):
                 self.gen = load_component(
                     'generator', params['nets']['generator'], 'Generator')(
-                        n_tracks=params['data_shape'][-1] - 1,
-                        condition_track_idx=params['condition_track_idx'])
+                        n_tracks=params['data_shape'][-1] - 1)  # greg: El hecho de ser acompañamiento le resta 1 aquí.
+                        # condition_track_idx=params['condition_track_idx']) # greg: load_component no hace nada con este parametro
             else:
                 self.gen = load_component(
                     'generator', params['nets']['generator'], 'Generator')(

@@ -99,7 +99,7 @@ def load_training_data(params, config):
         config['use_random_transpose'], config['n_jobs'])
 
     # Create iterator
-    if params['is_conditional']:  # greg: Acá se debiese cambiar para que train_y sea mas de un track
+    if params['is_conditional']:  # greg: ESTO NUNCA PASA, YA QUE is_conditional arroja Error Not supported yet en el método load_training_data
                                   # greg: ¿Que hace make_one_shot_iterator.get_next()?
         train_x, train_y = dataset.make_one_shot_iterator().get_next()
     else:
