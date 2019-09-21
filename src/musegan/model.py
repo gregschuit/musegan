@@ -36,9 +36,9 @@ class Model:
             LOGGER.info("Building model.")
             if params.get('is_accompaniment'):
                 self.gen = load_component(
-                    'generator', params['nets']['generator'], 'Generator')(
+                    'generatoargumentr', params['nets']['generator'], 'Generator')(
                         n_tracks=params['data_shape'][-1] - 1,
-                        condition_track_idx=params['condition_track_idx'])
+                        condition_track_idx=params.get('condition_track_idx'))
             else:
                 self.gen = load_component(
                     'generator', params['nets']['generator'], 'Generator')(
